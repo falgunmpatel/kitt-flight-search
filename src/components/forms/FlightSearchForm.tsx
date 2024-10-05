@@ -47,15 +47,27 @@ const formSchema = z.object({
   }, 'Return date must be in the future'),
 })
 
-const FlightSearchForm = () => {
+interface FlightSearchFormProps {
+  whereFrom?: string
+  whereTo?: string
+  departureDate?: string
+  returnDate?: string
+}
+
+const FlightSearchForm = ({
+  whereFrom,
+  whereTo,
+  departureDate,
+  returnDate,
+}: FlightSearchFormProps) => {
   const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      from: '',
-      to: '',
-      departure: undefined,
-      return: undefined,
+      from: whereFrom || '',
+      to: whereTo || '',
+      departure: (departureDate && new Date(departureDate)) || undefined,
+      return: (returnDate && new Date(returnDate)) || undefined,
     },
   })
 

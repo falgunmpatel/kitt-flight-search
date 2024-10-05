@@ -159,7 +159,12 @@ const ResultPage = () => {
             </div>
           </SheetTrigger>
           <SheetContent side={'top'} className='pt-[68px] px-[219px]'>
-            <FlightSearchForm />
+            <FlightSearchForm
+              whereFrom={fromAirport.name}
+              whereTo={toAirport.name}
+              departureDate={departureDate}
+              returnDate={returnDate}
+            />
           </SheetContent>
         </Sheet>
 
