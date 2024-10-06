@@ -86,8 +86,8 @@ const FlightSearchForm = ({
       <FormLabel className='hidden'>{label}</FormLabel>
       <FormControl>
         <Select value={field.value} onValueChange={field.onChange}>
-          <SelectTrigger className='max-w-sm sm:max-w-md md:max-w-[267.5px] h-[60px] flex gap-4 overflow-auto'>
-            <div className='flex gap-4 overflow-hidden items-center'>
+          <SelectTrigger className='w-[267.5px] h-[60px] flex gap-4 overflow-auto'>
+            <div className='flex gap-4 overflow-hidden items-center w-full'>
               <LocateFixed className='opacity-30 flex-none' size={16} />
               <SelectValue placeholder={placeholder} />
             </div>
@@ -129,7 +129,7 @@ const FlightSearchForm = ({
             <Button
               variant='outline'
               className={cn(
-                'max-w-sm sm:max-w-md md:max-w-[177px] h-[60px] pl-3 font-normal items-center justify-start gap-2',
+                'w-[177px] h-[60px] pl-3 font-normal items-center justify-start gap-2',
                 !field.value && 'text-muted-foreground',
               )}
             >
@@ -152,7 +152,7 @@ const FlightSearchForm = ({
           />
         </PopoverContent>
       </Popover>
-      <FormMessage className='min-h-[1.25rem] md:max-w-[177px]' />
+      <FormMessage className='min-h-[1.25rem] w-[177px]' />
     </FormItem>
   )
 
@@ -162,8 +162,8 @@ const FlightSearchForm = ({
         onSubmit={form.handleSubmit(onSubmit)}
         className='flex flex-col gap-4'
       >
-        <div className='flex flex-wrap gap-4 items-center max-w-sm sm:max-w-md md:max-w-[1001px] mx-auto w-full'>
-          <div className='flex w-full flex-col gap-4 md:flex-row md:items-center max-w-sm sm:max-w-md md:max-w-[616px]'>
+        <div className='flex flex-wrap gap-4 items-center w-[1010px]'>
+          <div className='flex gap-4 flex-row items-center w-[616px]'>
             <FormField
               control={form.control}
               name='from'
@@ -188,7 +188,7 @@ const FlightSearchForm = ({
               }
             />
           </div>
-          <div className='flex flex-col md:flex-row flex-wrap w-full md:max-w-[366px] gap-4'>
+          <div className='flex flex-wrap w-[370px] gap-4'>
             <FormField
               control={form.control}
               name='departure'
