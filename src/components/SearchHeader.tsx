@@ -1,11 +1,10 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetTitle,
   SheetTrigger,
@@ -21,7 +20,6 @@ interface AirportInfo {
 }
 
 const SearchHeader: React.FC = () => {
-  const [loading, setLoading] = useState(true)
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -47,14 +45,11 @@ const SearchHeader: React.FC = () => {
     setToAirport(parseAirportInfo(searchParams.get('to')))
     setDepartureDate(formatDate(searchParams.get('departureDate')))
     setReturnDate(formatDate(searchParams.get('returnDate')))
-    setLoading(false)
   }, [searchParams])
 
   const handleSearchClick = () => {
     router.push('/search')
   }
-
-  if (loading) return <Loader className='mx-auto w-full items-center' />
 
   return (
     <header className='h-[106px] px-[192px] w-full flex items-center justify-between border-b'>

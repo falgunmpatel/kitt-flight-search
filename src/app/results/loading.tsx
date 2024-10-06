@@ -1,11 +1,11 @@
 'use client'
 import { Card, CardContent } from '@/components/ui/card'
 import Image from 'next/image'
-import { CircleCheck, Loader2 } from 'lucide-react'
+import { CircleCheck, Loader, Loader2 } from 'lucide-react'
 import SearchHeader from '@/components/SearchHeader'
 import Plane from '@/public/plane.gif'
 import { Progress } from '@/components/ui/progress'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 
 export default function Loading() {
   const [value, setValue] = useState(0)
@@ -18,7 +18,9 @@ export default function Loading() {
 
   return (
     <>
-      <SearchHeader />
+      <Suspense fallback={<Loader className='mx-auto w-full items-center' />}>
+        <SearchHeader />
+      </Suspense>
       <Progress className='h-1' value={value} />
       <Card className='w-[323px] h-[300px] absolute top-[60%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 rounded-xl'>
         <CardContent className='flex flex-col items-center'>

@@ -1,10 +1,9 @@
 'use client'
-
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { Suspense, useEffect, useState } from 'react'
 import Loading from './loading'
 import SearchHeader from '@/components/SearchHeader'
 import FlightList from '@/components/FlightList'
+import { Loader } from 'lucide-react'
 
 const flights = [
   [
@@ -94,7 +93,6 @@ const flights = [
 ]
 
 const ResultPage: React.FC = () => {
-  const router = useRouter()
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -108,7 +106,9 @@ const ResultPage: React.FC = () => {
 
   return (
     <div>
-      <SearchHeader />
+      <Suspense fallback={<Loader className='mx-auto w-full items-center' />}>
+        <SearchHeader />
+      </Suspense>
       <div className='max-w-[1200px] mt-[36px] mx-auto'>
         <FlightList flights={flights} />
       </div>
