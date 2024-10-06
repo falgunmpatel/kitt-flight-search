@@ -1,7 +1,7 @@
 'use client'
 
 import { useSearchParams, useRouter } from 'next/navigation'
-import { Suspense, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Separator } from '@/components/ui/separator'
 import {
   Sheet,
@@ -10,7 +10,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import FlightSearchForm from '@/components/forms/FlightSearchForm'
-import { Loader, Search, X } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 
 interface AirportInfo {
   code: string
